@@ -1,13 +1,13 @@
 from BaseSimulation import SlotMachine
 import itertools
 
-points_200= {"AAA":200}
-combo_100 = [''.join(candidate) for candidate in itertools.product('AB', 'AB', 'AB')]
-points_100 = {combo: 100 for combo in combo_100}
+points_400= {"AAA":400}
+combo_200 = [''.join(candidate) for candidate in itertools.product('AB', 'AB', 'AB')]
+points_200 = {combo: 200 for combo in combo_200}
 combo_50 = [''.join(candidate) for candidate in itertools.product('ACDEF', 'ACDE', 'ACDE')]
 points_50 = {combo: 50 for combo in combo_50}
-combo_20 = [''.join(candidate) for candidate in itertools.product('AGHIJK', 'AFGHIJK', 'AFGHIJK')]
-points_20 = {combo: 20 for combo in combo_20}
+combo_10 = [''.join(candidate) for candidate in itertools.product('AGHIJK', 'AFGHIJK', 'AFGHIJK')]
+points_10 = {combo: 10 for combo in combo_10}
 combo_5a = [''.join(candidate) for candidate in itertools.product('ABCDEFGHIJK', 'ABCDEFGHIJK', 'ABCDEFGHIJK')]
 points_5a = {combo: 5 for combo in combo_5a}
 combo_5b = ['AA' + letter for letter in 'ABCDEFGHIJKLMNOPQRSTUV']
@@ -25,7 +25,7 @@ combo_2c = ['{}{}A'.format(first_letter, second_letter) for first_letter in 'ABC
 points_2c = {combo: 2 for combo in combo_2c}
 
 pointsdict = {}
-dictionaries_to_update = [points_2a, points_2b, points_2c, points_5a, points_5b, points_5c, points_5d, points_20, points_50, points_100, points_200]
+dictionaries_to_update = [points_2a, points_2b, points_2c, points_5a, points_5b, points_5c, points_5d, points_10, points_50, points_200, points_400]
 
 for dictionary in dictionaries_to_update:
     pointsdict.update(dictionary)
@@ -33,7 +33,6 @@ for dictionary in dictionaries_to_update:
 
 slot1 = SlotMachine(3, pointsdict)
 
-print(slot1.simulation(100000,2000000,1))
-#print(len(pointsdict))
+print(slot1.simulation(1000,200000,1))
 
 
